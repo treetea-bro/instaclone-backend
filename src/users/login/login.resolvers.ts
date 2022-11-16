@@ -1,10 +1,9 @@
-import client from "../../client";
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
+import * as bcrypt from "bcrypt";
+import * as jwt from "jsonwebtoken";
 
 export default {
   Mutation: {
-    login: async (_, { username, password }) => {
+    login: async (_, { username, password }, { client }) => {
       const user = await client.user.findFirst({ where: { username } });
       if (!user) {
         return {
