@@ -7,7 +7,21 @@ Instaclone Backend.
 - [v] Create Account
 - [v] See Profile
 - [v] Login
-- [ ] Edit Profile
-- [ ] Follow User
+- [v] Edit Profile
+- [v] Change Avatar (Image Upload)
+- [v] Follow User
 - [ ] Unfollw User
-- [ ] Change Avatar (Image Upload)
+- [ ] Search Users
+- [ ] See Followers
+- [ ] See Following
+
+## Photos
+
+- [ ] See Photo
+- [ ] Upload Photo
+- [ ] Edit Photo
+- [ ] Like / Unlike Photo
+- [ ] See Photo Likes
+- [ ] See Feed
+- [ ] Search Photos
+- [ ] See Hashtags

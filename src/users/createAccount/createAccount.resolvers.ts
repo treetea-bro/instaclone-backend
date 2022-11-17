@@ -14,10 +14,14 @@ const resolvers: Resolvers = {
             OR: [{ username }, { email }],
           },
         });
-        if (existingUser)
-          throw new Error("same username or email already exists");
+        if (existingUser) {
+          return {
+            ok: false,
+            error: "same username or email already exists",
+          };
+        }
         const uglyPassword: string = await bcrypt.hash(password, 10);
-        return client.user.create({
+        const result = await client.user.create({
           data: {
             username,
             email,
@@ -26,8 +30,14 @@ const resolvers: Resolvers = {
             password: uglyPassword,
           },
         });
-      } catch (e) {
-        return e;
+        if (result) {
+          return {
+            ok: true,
+          };
+        }
+        return { ok: false, error: "create user failed" };
+      } catch (error) {
+        return error;
       }
     },
   },
